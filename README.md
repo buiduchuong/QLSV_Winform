@@ -18,4 +18,4 @@ Phần mềm quản lí sinh viên bằng ngôn ngữ C# (Winform)
 + Giao diện chưa được đẹp , còn thiếu nhiều chức năng.
 # Đóng góp mã nguồn và tải mã nguồn
 + Để đóng góp mã nguồn hay phản hồi [tại đây](https://github.com/buiduchuong/QLSV_Winform/issues) hoặc gửi vào hộp thư điện tử buiduchuong1209@gmail.com .
-+ Tải mã nguồn ơhttps://github.com/buiduchuong/QLSV_Winform/archive/refs/heads/main.zip
++ Tải mã nguồn [tại đây](https://github.com/buiduchuong/QLSV_Winform/archive/refs/heads/main.zip)

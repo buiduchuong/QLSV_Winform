@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLiSinhVienModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="GiangVien">
+    <Key>
+      <PropertyRef Name="magv" />
+    </Key>
+    <Property Name="magv" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="hoten" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="sdt" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ngaysinh" Type="DateTime" Precision="0" />
+    <Property Name="makhoa" Type="Int32" />
+    <Property Name="mamh" Type="Int32" />
+    <NavigationProperty Name="Khoa" Relationship="Self.FK__GiangVien__makho__30F848ED" FromRole="GiangVien" ToRole="Khoa" />
+    <NavigationProperty Name="MonHoc" Relationship="Self.FK__GiangVien__mamh__31EC6D26" FromRole="GiangVien" ToRole="MonHoc" />
+  </EntityType>
+  <EntityType Name="Khoa">
+    <Key>
+      <PropertyRef Name="makhoa" />
+    </Key>
+    <Property Name="makhoa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenkhoa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="GiangViens" Relationship="Self.FK__GiangVien__makho__30F848ED" FromRole="Khoa" ToRole="GiangVien" />
+    <NavigationProperty Name="Lops" Relationship="Self.FK__Lop__makhoa__267ABA7A" FromRole="Khoa" ToRole="Lop" />
+  </EntityType>
+  <EntityType Name="Lop">
+    <Key>
+      <PropertyRef Name="malop" />
+    </Key>
+    <Property Name="malop" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="makhoa" Type="Int32" />
+    <Property Name="tenlop" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="khoahoc" Type="Int32" />
+    <NavigationProperty Name="Khoa" Relationship="Self.FK__Lop__makhoa__267ABA7A" FromRole="Lop" ToRole="Khoa" />
+    <NavigationProperty Name="SinhViens" Relationship="Self.FK__SinhVien__malop__2B3F6F97" FromRole="Lop" ToRole="SinhVien" />
+  </EntityType>
+  <EntityType Name="MonHoc">
+    <Key>
+      <PropertyRef Name="mamh" />
+    </Key>
+    <Property Name="mamh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenmh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="GiangViens" Relationship="Self.FK__GiangVien__mamh__31EC6D26" FromRole="MonHoc" ToRole="GiangVien" />
+    <NavigationProperty Name="Diems" Relationship="QuanLiSinhVienModel.FK__Diem__mamh__2E1BDC42" FromRole="MonHoc" ToRole="Diem" />
+  </EntityType>
+  <EntityType Name="SinhVien">
+    <Key>
+      <PropertyRef Name="masv" />
+    </Key>
+    <Property Name="masv" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="hoten" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="sdt" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ngaysinh" Type="DateTime" Precision="0" />
+    <Property Name="malop" Type="Int32" />
+    <NavigationProperty Name="Lop" Relationship="Self.FK__SinhVien__malop__2B3F6F97" FromRole="SinhVien" ToRole="Lop" />
+    <NavigationProperty Name="Diem" Relationship="QuanLiSinhVienModel.FK__Diem__masv__2D27B809" FromRole="SinhVien" ToRole="Diem" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__GiangVien__makho__30F848ED">
+    <End Role="Khoa" Type="Self.Khoa" Multiplicity="0..1" />
+    <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Khoa">
+        <PropertyRef Name="makhoa" />
+      </Principal>
+      <Dependent Role="GiangVien">
+        <PropertyRef Name="makhoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GiangVien__mamh__31EC6D26">
+    <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="0..1" />
+    <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MonHoc">
+        <PropertyRef Name="mamh" />
+      </Principal>
+      <Dependent Role="GiangVien">
+        <PropertyRef Name="mamh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Lop__makhoa__267ABA7A">
+    <End Role="Khoa" Type="Self.Khoa" Multiplicity="0..1" />
+    <End Role="Lop" Type="Self.Lop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Khoa">
+        <PropertyRef Name="makhoa" />
+      </Principal>
+      <Dependent Role="Lop">
+        <PropertyRef Name="makhoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SinhVien__malop__2B3F6F97">
+    <End Role="Lop" Type="Self.Lop" Multiplicity="0..1" />
+    <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lop">
+        <PropertyRef Name="malop" />
+      </Principal>
+      <Dependent Role="SinhVien">
+        <PropertyRef Name="malop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanLiSinhVienEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="GiangViens" EntityType="Self.GiangVien" />
+    <EntitySet Name="Khoas" EntityType="Self.Khoa" />
+    <EntitySet Name="Lops" EntityType="Self.Lop" />
+    <EntitySet Name="MonHocs" EntityType="Self.MonHoc" />
+    <EntitySet Name="SinhViens" EntityType="Self.SinhVien" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK__GiangVien__makho__30F848ED" Association="Self.FK__GiangVien__makho__30F848ED">
+      <End Role="Khoa" EntitySet="Khoas" />
+      <End Role="GiangVien" EntitySet="GiangViens" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GiangVien__mamh__31EC6D26" Association="Self.FK__GiangVien__mamh__31EC6D26">
+      <End Role="MonHoc" EntitySet="MonHocs" />
+      <End Role="GiangVien" EntitySet="GiangViens" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Lop__makhoa__267ABA7A" Association="Self.FK__Lop__makhoa__267ABA7A">
+      <End Role="Khoa" EntitySet="Khoas" />
+      <End Role="Lop" EntitySet="Lops" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SinhVien__malop__2B3F6F97" Association="Self.FK__SinhVien__malop__2B3F6F97">
+      <End Role="Lop" EntitySet="Lops" />
+      <End Role="SinhVien" EntitySet="SinhViens" />
+    </AssociationSet>
+    <EntitySet Name="Diems" EntityType="QuanLiSinhVienModel.Diem" />
+    <AssociationSet Name="FK__Diem__mamh__2E1BDC42" Association="QuanLiSinhVienModel.FK__Diem__mamh__2E1BDC42">
+      <End Role="MonHoc" EntitySet="MonHocs" />
+      <End Role="Diem" EntitySet="Diems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Diem__masv__2D27B809" Association="QuanLiSinhVienModel.FK__Diem__masv__2D27B809">
+      <End Role="SinhVien" EntitySet="SinhViens" />
+      <End Role="Diem" EntitySet="Diems" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Diem">
+    <Key>
+      <PropertyRef Name="masv" />
+    </Key>
+    <Property Name="masv" Type="Int32" Nullable="false" />
+    <Property Name="mamh" Type="Int32" Nullable="false" />
+    <Property Name="diemGiuaKi" Type="Double" />
+    <Property Name="diemCuoiKi" Type="Double" />
+    <NavigationProperty Name="MonHoc" Relationship="QuanLiSinhVienModel.FK__Diem__mamh__2E1BDC42" FromRole="Diem" ToRole="MonHoc" />
+    <NavigationProperty Name="SinhVien" Relationship="QuanLiSinhVienModel.FK__Diem__masv__2D27B809" FromRole="Diem" ToRole="SinhVien" />
+  </EntityType>
+  <Association Name="FK__Diem__mamh__2E1BDC42">
+    <End Type="QuanLiSinhVienModel.MonHoc" Role="MonHoc" Multiplicity="0..1" />
+    <End Type="QuanLiSinhVienModel.Diem" Role="Diem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MonHoc">
+        <PropertyRef Name="mamh" />
+      </Principal>
+      <Dependent Role="Diem">
+        <PropertyRef Name="mamh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Diem__masv__2D27B809">
+    <End Type="QuanLiSinhVienModel.SinhVien" Role="SinhVien" Multiplicity="1" />
+    <End Type="QuanLiSinhVienModel.Diem" Role="Diem" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="SinhVien">
+        <PropertyRef Name="masv" />
+      </Principal>
+      <Dependent Role="Diem">
+        <PropertyRef Name="masv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

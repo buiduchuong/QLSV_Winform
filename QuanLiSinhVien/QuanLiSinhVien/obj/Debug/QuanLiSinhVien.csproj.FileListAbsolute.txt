@@ -1,0 +1,16 @@
+E:\c#-work\QuanLiSinhVien\QuanLiSinhVien\bin\Debug\QuanLiSinhVien.exe.config
+E:\c#-work\QuanLiSinhVien\QuanLiSinhVien\bin\Debug\QuanLiSinhVien.exe
+E:\c#-work\QuanLiSinhVien\QuanLiSinhVien\bin\Debug\QuanLiSinhVien.pdb
+E:\c#-work\QuanLiSinhVien\QuanLiSinhVien\obj\Debug\QuanLiSinhVien.Form1.resources
+E:\c#-work\QuanLiSinhVien\QuanLiSinhVien\obj\Debug\QuanLiSinhVien.Properties.Resources.resources
+E:\c#-work\QuanLiSinhVien\QuanLiSinhVien\obj\Debug\QuanLiSinhVien.csproj.GenerateResource.cache
+E:\c#-work\QuanLiSinhVien\QuanLiSinhVien\obj\Debug\QuanLiSinhVien.csproj.CoreCompileInputs.cache
+E:\c#-work\QuanLiSinhVien\QuanLiSinhVien\obj\Debug\QuanLiSinhVien.exe
+E:\c#-work\QuanLiSinhVien\QuanLiSinhVien\obj\Debug\QuanLiSinhVien.pdb
+E:\c#-work\QuanLiSinhVien\QuanLiSinhVien\bin\Debug\EntityFramework.dll
+E:\c#-work\QuanLiSinhVien\QuanLiSinhVien\bin\Debug\EntityFramework.SqlServer.dll
+E:\c#-work\QuanLiSinhVien\QuanLiSinhVien\bin\Debug\EntityFramework.xml
+E:\c#-work\QuanLiSinhVien\QuanLiSinhVien\bin\Debug\EntityFramework.SqlServer.xml
+E:\c#-work\QuanLiSinhVien\QuanLiSinhVien\obj\Debug\QuanLiSinhVien.csproj.CopyComplete
+E:\c#-work\QuanLiSinhVien\QuanLiSinhVien\obj\Debug\QuanLiSinhVien.csprojAssemblyReference.cache
+E:\c#-work\QuanLiSinhVien\QuanLiSinhVien\obj\Debug\QuanLiSinhVien.frmThongKe.resources
